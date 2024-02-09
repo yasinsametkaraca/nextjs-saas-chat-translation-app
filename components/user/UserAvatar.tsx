@@ -7,7 +7,7 @@ function UserAvatar({name, image, className}: {name?: string | null, image?: str
         <Avatar className={cn("bg-white text- rounded-full", className)}>
             {
                 image && (
-                    <Image src={image} alt={name || "User name"} width={40} height={40} className="rounded-full"  />
+                    <Image src={image} alt={name || "User name"} width={40} height={40}  />
                 )
 
             }

@@ -20,6 +20,7 @@
     "paths": {
       "@/*": ["./*"],
       "@logos/*": ["./images/logos/*"],
+      "@landingPage/*": ["./images/landingPage/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
