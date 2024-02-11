@@ -1,8 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import ChatImage from '@landingPage/chat.png';
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/auth";
 
-export default function Home() {
+export default async function Home() {
+    const session = await getServerSession(authOptions)
+    console.log(session)
 
     return (
         <main className="">
@@ -33,7 +37,7 @@ export default function Home() {
                                 </Link>
                                 <Link
                                     className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
-                                    href="/pricing">View Pricing <span aria-hidden="true">→</span>
+                                    href={`${session ? "/membership" : "/pricing"}`}>View Pricing <span aria-hidden="true">→</span>
                                 </Link>
                             </div>
                         </div>

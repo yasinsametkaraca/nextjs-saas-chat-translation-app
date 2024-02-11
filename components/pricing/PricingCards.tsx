@@ -1,11 +1,13 @@
 import React from 'react';
 import {CheckIcon} from "lucide-react";
+import Link from "next/link";
+import CheckoutButton from './CheckoutButton';
 
 function PricingCards({redirect}: {redirect: boolean}) {
     const plans = [
         {
             name: "Starter",
-            id: "starter",
+            id: null,
             href: "#",
             priceMonthly: null,
             description: "Get started with our platform",
@@ -70,17 +72,15 @@ function PricingCards({redirect}: {redirect: boolean}) {
                                 </div>
                                 {
                                     redirect ? (
-                                        <a
-                                            className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
-                                            href="/register">
-                                            Get started today
-                                        </a>
-                                    ) : (
-                                        <button
+                                        <Link
+                                            href="/membership"
                                             className="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer disabled:opacity-80"
                                         >
                                             Get started today
-                                        </button>
+                                        </Link>
+                                    ) : (plan.id && (
+                                            <CheckoutButton />
+                                        )
                                     )
                                 }
                             </div>

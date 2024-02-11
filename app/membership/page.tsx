@@ -3,7 +3,7 @@ import {getServerSession} from "next-auth";
 import {authOptions} from "@/auth";
 import PricingCards from "@/components/pricing/PricingCards";
 
-async function Register() {
+async function Membership() {
     const session = await getServerSession(authOptions)
     return (
         <div className="isolate h-full overflow-hidden bg-gray-900 pb-40">
@@ -29,4 +29,4 @@ async function Register() {
     );
 }
 
-export default Register;
+export default Membership;
