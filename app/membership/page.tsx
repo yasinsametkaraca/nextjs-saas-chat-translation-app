@@ -1,7 +1,7 @@
 import React from 'react';
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/auth";
-import PricingCards from "@/components/pricing/PricingCards";
+import PricingCards from "@/components/membership/PricingCards";
 
 async function Membership() {
     const session = await getServerSession(authOptions)

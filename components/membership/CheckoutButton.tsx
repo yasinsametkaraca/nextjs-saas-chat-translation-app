@@ -4,7 +4,7 @@ import {useSession} from "next-auth/react";
 function CheckoutButton() {
     const {data: session} = useSession();  // useSession is used to get the session. It is a client side function.
     const createCheckoutSession = async () => {
-        if(!session) return;
+        if(!session?.user.id) return;
     }
 
     return (
