@@ -14,7 +14,7 @@ function CheckoutButton() {
         const docRef = await addDoc(
             collection(db, 'customers', session.user.id, 'checkout_sessions'),
             {  // Add the checkout session to the database. This is used to keep track of the checkout sessions.
-                price: 'price_1OkTqdFZF8hRxb2XT4fb0DgJ',  // Replace with your price id. Price id is the id of the price you want to charge the user for.
+                price: 'price_1OkShFFZF8hRxb2XsQrtEQ6K',  // Replace with your price id. Price id is the id of the price you want to charge the user for.
                 success_url: window.location.origin,  // Replace with your success url. Success url is the url where the user will be redirected after the payment is successful.
                 cancel_url: window.location.origin,  // Replace with your cancel url. Cancel url is the url where the user will be redirected if they cancel the payment.
             }
