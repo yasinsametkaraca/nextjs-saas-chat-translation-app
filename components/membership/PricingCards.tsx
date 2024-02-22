@@ -23,7 +23,7 @@ function PricingCards({redirect}: {redirect: boolean}) {
             name: "Pro",
             id: "pro",
             href: "#",
-            priceMonthly: "159,99 TRY",
+            priceMonthly: "TL159.99",
             description: "Unlock the full potential of our platform",
             features: [
                 "Unlimited messages in chats",
