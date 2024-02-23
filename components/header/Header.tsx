@@ -3,6 +3,7 @@
 // So that the components can use the server to make requests to the server.
 import Logo from "@/components/header/Logo";
 import DarkModeToggle from "@/components/header/DarkModeToggle";
+import UpgradeBanner from "@/components/header/UpgradeBanner";
 import UserButton from "@/components/header/UserButton";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/auth";
@@ -35,6 +36,7 @@ async function Header() {
                     <UserButton session={session} />
                 </div>
             </nav>
+            <UpgradeBanner />
         </header>
     );
 }

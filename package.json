@@ -24,8 +24,10 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "stripe": "^14.18.0",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zustand": "^4.5.1"
   },
   "devDependencies": {
     "@types/node": "^20",
