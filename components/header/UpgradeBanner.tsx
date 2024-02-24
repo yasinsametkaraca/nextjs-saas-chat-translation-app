@@ -16,7 +16,7 @@ function UpgradeBanner() {
     return (
         <Button
             onClick={() => router.push("/membership")}
-            className="w-full rounded-none bg-gradient-to-r from-indigo-600 to-indigo-500 text-center text-white px-5 py-2 hover:from-indigo-500 hover:to-indigo-400 hover:shadow-md transition-all"
+            className="w-full rounded-none bg-gradient-to-r from-[#fa9d32] to-[#208afa] text-center text-white px-5 py-2 hover:from-[#fa9d32] hover:to-[#208afa] hover:shadow-xxl transition-all"
         >
             Upgrade to Pro to unlock all features!
         </Button>
