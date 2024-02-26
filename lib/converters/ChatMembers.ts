@@ -62,9 +62,11 @@ export const chatMemberAdminRef = (chatId: string) =>
     ).withConverter(chatMembersConverter)
 // reference to the chat members collection. This is used to get the list of chat members who are admins.
 
+
+// IMPORTANT!!! Before making this query, an index must be created. An index can be created from the Firestore console.
 export const chatMembersCollectionGroupRef = (userId: string) =>
     query(
-        collectionGroup(db, 'members'),
+        collectionGroup(db, 'members'),  // collectionGroup is used to get all the documents from the collection group. (We will query directly in members instead of chats/{chatId}/members.) It is used to get all the members of the chat where the user is a member.
         where('userId', "==", userId)
     ).withConverter(chatMembersConverter)
 // get all the members of the chat where the user is a member

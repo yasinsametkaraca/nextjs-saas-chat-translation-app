@@ -9,9 +9,8 @@ import {useSubscriptionStore} from "@/store/store";
 import {useToast} from "@/components/ui/use-toast";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { v4 as uuidv4 } from 'uuid';
-import {setDoc} from "@firebase/firestore";
+import {setDoc, serverTimestamp} from "@firebase/firestore";
 import {addChatRef} from "@/lib/converters/ChatMembers";
-import {serverTimestamp} from "@firebase/database";
 
 function CreateChatButton({isLarge}: {isLarge?: boolean}) {
     const {data: session} = useSession();
@@ -26,7 +25,7 @@ function CreateChatButton({isLarge}: {isLarge?: boolean}) {
         toast({
             title: "Creating a new chat...",
             description: "You will be able to chat with people from any country you want.",
-            duration: 2500,
+            duration: 3000,
         })
 
         const chatId = uuidv4();
@@ -42,7 +41,7 @@ function CreateChatButton({isLarge}: {isLarge?: boolean}) {
                 title: "Success",
                 description: "Your chat has been created. You can now chat with people from any country you want.",
                 className: "bg-green-500 text-white",
-                duration: 2500,
+                duration: 3000,
             })
             router.push(`/chat/${chatId}`);
         }).catch((error) => {

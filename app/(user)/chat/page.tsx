@@ -8,9 +8,12 @@ type Props = {
     };
 };
 
-function ChatsPage({searchParams: {error}}: Props) {
+function ChatsPage({searchParams: {error} }: Props) {
     return (
-        <ChatList />
+        <div>
+            <h1>Chats</h1>
+            <ChatList />
+        </div>
     );
 }
 
