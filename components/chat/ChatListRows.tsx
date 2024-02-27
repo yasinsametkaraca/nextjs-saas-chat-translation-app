@@ -14,7 +14,7 @@ function ChatListRows({ initialChats }: { initialChats: ChatMembers[] } ) {
 
     // useCollectionData is a hook that listens to the collection data in real-time. It returns an array of the collection data, a boolean value that indicates whether the data is loading, and an error object.
     const [members, loading, error] = useCollectionData<ChatMembers>(
-        session && chatMembersCollectionGroupRef(session.user.id!), {
+        session && chatMembersCollectionGroupRef(session?.user.id!), {
             initialValue: initialChats,
         }
     ) // initialValue is used to set the initial value of the collection data. It is used to render the initial data on the client side. It is used to avoid the flickering of the data.

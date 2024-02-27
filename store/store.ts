@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { Subscription} from "@/types/Subscription";
 
 //en,es,de,fr,tr,ar,zh,pt,it,ru
-export type LanguageSupported =
+export type LanguagesSupported =
     | "en"
     | "es"
     | "de"
@@ -15,7 +15,7 @@ export type LanguageSupported =
     | "ru";
 
 //LanguageSupportedMap is a map that contains the supported languages and their corresponding names. It is used to display the supported languages in the language selector.
-export const LanguageSupportedMap: Record<LanguageSupported, string> = { //
+export const LanguageSupportedMap: Record<LanguagesSupported, string> = { //
     en: "English",
     es: "Spanish",
     de: "German",
@@ -27,6 +27,13 @@ export const LanguageSupportedMap: Record<LanguageSupported, string> = { //
     it: "Italian",
     ru: "Russian",
 };
+
+interface LanguageState {
+    language: LanguagesSupported;
+    setLanguage: (language: LanguagesSupported) => void;
+    getLanguages: (isPro: boolean) => LanguagesSupported[];
+    getNotSupportedLanguages: (isPro: boolean) => LanguagesSupported[];
+}
 
 interface SubscriptionState {  // SubscriptionState is an interface that contains the subscription and the setSubscription function. It is used to manage the subscription of the user.
     subscription: Subscription | null | undefined;
