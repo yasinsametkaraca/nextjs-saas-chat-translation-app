@@ -1,9 +1,14 @@
 import React from 'react';
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/auth";
+import ChatInput from "@/components/chat/ChatInput";
 
-function ChatPage() {
+async function ChatPage() {
+    const session = await getServerSession(authOptions) // getServerSession is used to get the server session.
+
     return (
         <>
-            <div>Chat</div>
+            <ChatInput chatId={"session"}/>
         </>
     );
 }
