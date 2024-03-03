@@ -8,6 +8,9 @@ async function ChatPage() {
 
     return (
         <>
+            <div className="h-screen">
+
+            </div>
             <ChatInput chatId={"session"}/>
         </>
     );
