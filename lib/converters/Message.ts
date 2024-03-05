@@ -9,7 +9,7 @@ import {
     query,
     orderBy,
 } from "firebase/firestore";
-import {LanguageSupported} from "@/store/store";
+import {LanguagesSupported} from "@/store/store";
 
 export interface User {
     id: string;
@@ -24,7 +24,7 @@ export interface Message {
     timestamp: Date;
     user: User;
     translated?: {
-        [K in LanguageSupported]?: string;  // translated message in different languages. It is used to store the translated message in different languages. It is extension.
+        [K in LanguagesSupported]?: string;  // translated message in different languages. It is used to store the translated message in different languages. It is extension.
     };
 }
 
