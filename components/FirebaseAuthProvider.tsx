@@ -6,27 +6,30 @@ import {Session} from "next-auth";
 import {signInWithCustomToken} from "@firebase/auth";
 import {auth} from "@/firebase";
 
-async function syncFirebaseAuth(session: Session) {
-    if(session && session.firebaseToken) {
-        try {
-            await signInWithCustomToken(auth, session.firebaseToken);
-        } catch (e) {
-            console.error(e)
-        }
-    } else {
-        auth.signOut()
-    }
-}
+
 
 function FirebaseAuthProvider({children,}: { children: React.ReactNode; }) {
     const {data: session} = useSession();
 
-
     useEffect(() => {
         if (!session) return;
 
+        async function syncFirebaseAuth(session: Session) {
+            if(session && session.firebaseToken) {
+                try {
+                    await signInWithCustomToken(auth, session.firebaseToken);
+                } catch (e) {
+                    console.log("error custom token", e)
+                }
+            } else {
+                await auth.signOut()
+            }
+        }
+
         syncFirebaseAuth(session);
+
     }, [session]);
+
     return (
         <>{children}</>
     );

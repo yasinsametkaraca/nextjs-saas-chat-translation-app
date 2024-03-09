@@ -1,5 +1,6 @@
 // SubscriptionProvider is a component that will be used to manage the subscription of the user. It will be used to check if the user is subscribed or not. If the user is not subscribed, it will show a message to subscribe. If the user is subscribed, it will show the content.
 'use client'
+
 import {useSession} from "next-auth/react";
 import React, {useEffect} from "react";
 import {onSnapshot} from "@firebase/firestore";
@@ -14,6 +15,7 @@ function SubscriptionProvider({children}: {children: React.ReactNode}) {
 
     useEffect(() => {
         if (!session) return;
+
         return onSnapshot(subscriptionRef(session?.user.id!), (snapshot) => {  // onSnapshot is used to listen for changes to the database. It is a client side function.
             if (snapshot.empty) {
                 console.log('User is not subscribed');
