@@ -7,6 +7,8 @@ import {getDocs} from "@firebase/firestore";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatMembersBadges from '@/components/chat/ChatMembersBadges';
 import AdminControls from "@/components/chat/AdminControls";
+import {listChatMembersRef} from "@/lib/converters/ChatMembers";
+import {redirect} from "next/navigation";
 
 type Props = {  // parameters of the chat page. It is used to get the chatId. Next.js uses this to get the chatId. Url is used to get the chatId.
     params: {
@@ -22,7 +24,11 @@ async function ChatPage({ params: {chatId} }: Props) {
             (doc) => doc.data()
         )
 
+    const hasAccessChat = (await getDocs(listChatMembersRef(chatId))).docs
+        .map(doc => doc.id) // get the list of chat members. doc.id is user id.
+        .includes(session?.user.id!); // check if the user has access to the chat. Includes is used to check if the user has access to the chat.
 
+    if (!session || !hasAccessChat) redirect("/chat?error=permission") // redirect to the chat page if the user does not have access to the chat.
 
     return (
         <>
