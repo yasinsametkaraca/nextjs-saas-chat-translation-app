@@ -3,6 +3,8 @@ import {NextAuthOptions} from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import {FirestoreAdapter} from "@auth/firebase-adapter";
 import {adminAuth, adminDb} from "./firebase-admin";
+import { Adapter } from "next-auth/adapters";
+
 
 export const authOptions: NextAuthOptions = {
     providers: [  // configure the authentication providers. In this case, only google provider is used.
@@ -33,7 +35,7 @@ export const authOptions: NextAuthOptions = {
     session: {
         strategy: "jwt",  // use jwt token for session management. It is more secure than default session management.
     },
-    adapter: FirestoreAdapter(adminDb),  // use firestore adapter for session management. users and sessions will be stored in firestore. Users and sessions collection will be created in firestore.
+    adapter: FirestoreAdapter(adminDb) as Adapter  // use firestore adapter for session management. users and sessions will be stored in firestore. Users and sessions collection will be created in firestore.
 } satisfies NextAuthOptions;
 
 // JWT'nin payload kısmı şu şekilde olabilir.
